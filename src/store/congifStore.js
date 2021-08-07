@@ -9,3 +9,8 @@ const congifStore = () => {
 }
 
 export default congifStore
+
+
+ // git intitialse  //staggin area (index)    //  online
+   
+    //git init      //git add .  
