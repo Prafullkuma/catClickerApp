@@ -1,10 +1,17 @@
 import React from 'react'
 
+import Cat from './Components/Cat'
+
 const App = () => {
-    return (
+    /*
+    data required
+        Id,catName,catImage,catClickCount,NickName,
+    */
+   
+     return (
         <div>
-            <h1>App component</h1>
-        </div>
+            <Cat/>
+           </div>
     )
 }
 
