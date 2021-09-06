@@ -8,9 +8,11 @@ import logo from '../3973481.jpg'
 
 const Cat = (props) => {
     const [banner,setBanner]=useState(false)
+
     const handleToggle=()=>{
       setBanner(true)  
     }
+    
     return (
         <div style={{marginTop: '1.5rem'}} className="container">
              <div className="card">
@@ -32,7 +34,7 @@ const Cat = (props) => {
                         :
                         <div className="col-6"> 
                              <h3 style={{color:'red'}}>Your are not selected the cat from cat list</h3>
-                             <img src={logo} style={{height:'400px',width:'500px'}} alt="image not found"/>
+                             <img src={logo} style={{height:'400px',width:'500px'}} alt="data not found"/>
                         </div>
                         
                     }

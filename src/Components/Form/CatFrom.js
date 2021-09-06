@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const CatFrom = (props) => {
-    const {id:Eid,name:Ename,count:Ecount,nickName:EnickName,image:Eimage }= props
+    const {id:Eid,name:Ename,isSaved,isSavedStatus,count:Ecount,nickName:EnickName,image:Eimage }= props
     
     const {formSubmission,hanldeToggle}=props
-
+    
 
     const [id,setId]=useState(Eid ? Eid :Number(new Date()))
     const [name,setName]=useState(Ename?Ename :'')
@@ -13,7 +13,19 @@ const CatFrom = (props) => {
     const [nickName,setNickName]=useState(EnickName? EnickName:'')
     const [formError,setFormError]=useState({})
 
+
     let error={}
+
+    useEffect(()=>{
+        if(isSaved){
+            setId(Number(new Date()))
+            setName('')
+            setCount(0)
+            setImage('')
+            setNickName('')
+            isSavedStatus()
+        }
+    },[isSaved,isSavedStatus])
 
     const handleChange=(e)=>{
         const attr=e.target.name
@@ -50,20 +62,15 @@ const CatFrom = (props) => {
             image:image,
             count:count
         }
-        if(Object.keys(error).length===0){
-            setFormError({})
-            formSubmission(formData)
-            setName('')
-            setCount(0)
-            setImage('')
-            setNickName('')
-            setId(Number(new Date()))
-        } else{
-            setFormError(error)
-        }
         if(hanldeToggle){
             hanldeToggle()
-        }       
+        }
+        if(Object.keys(error).length===0){
+            setFormError({})
+            formSubmission(formData)   
+        } else{
+            setFormError(error)
+        }  
     }
 
     return (

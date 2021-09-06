@@ -20,6 +20,7 @@ const EditForm = (props) => {
                 image={image}
                 hanldeToggle={hanldeToggle}
             />
+            
         </div>
     )
 }
